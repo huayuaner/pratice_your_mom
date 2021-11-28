@@ -49,7 +49,7 @@ def reorderList(self, head: ListNode) -> None:
         head.next = headAndTail[1].next
 
         headAndTail[1].next = headAndTail[1].next.next
-        print(head, ' ', headAndTail[0], ' ', headAndTail[1])
+        #print(head, ' ', headAndTail[0], ' ', headAndTail[1])
         head.next.next = headAndTail[0]
         # print( headAndTail[0], ' ', headAndTail[1])
         return head, headAndTail[1]
