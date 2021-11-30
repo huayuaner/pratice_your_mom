@@ -17,5 +17,31 @@
 # ((2*(3-4))*5) = -10
 # (2*((3-4)*5)) = -10
 # (((2*3)-4)*5) = 10
+memory = {}
 
+
+def func(expression):
+    if (expression[0] + expression[-1]) in memory.keys():
+        return memory[expression[0] + expression[-1]]
+    if expression.isdigit():
+        return [int(expression)]
+    res = []
+    for i, char in enumerate(expression):
+        if char in ['+', '-', '*']:
+            left = self.diffWaysToCompute(expression[:i])
+            right = self.diffWaysToCompute(expression[i + 1:])
+
+            for l in left:
+                for r in right:
+                    if char == '+':
+                        res.append(l + r)
+                    if char == '*':
+                        res.append(l * r)
+                    if char == '-':
+                        res.append(l - r)
+    memory[expression[0] + expression[-1]] = res
+    return res
+
+
+return func(expression)
 
