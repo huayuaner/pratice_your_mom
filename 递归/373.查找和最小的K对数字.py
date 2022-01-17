@@ -31,7 +31,7 @@ class Solution:
         # pq是有序的
         pq = [(nums1[i] + nums2[0], i, 0) for i in range(min(m, k))]
         while pq and k > 0:
-            # heappop会弹出最左边的元素
+            # heappop会弹出最小的元素
             _, i, j = heappop(pq)
             ans.append([nums1[i], nums2[j]])
             k -= 1
