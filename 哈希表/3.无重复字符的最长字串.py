@@ -1,23 +1,23 @@
-给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。
-
- 
-
-示例 1:
-
-输入: s = "abcabcbb"
-输出: 3 
-解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
-示例 2:
-
-输入: s = "bbbbb"
-输出: 1
-解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。
-示例 3:
-
-输入: s = "pwwkew"
-输出: 3
-解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。
-     请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
+# 给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。
+#
+#  
+#
+# 示例 1:
+#
+# 输入: s = "abcabcbb"
+# 输出: 3
+# 解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
+# 示例 2:
+#
+# 输入: s = "bbbbb"
+# 输出: 1
+# 解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。
+# 示例 3:
+#
+# 输入: s = "pwwkew"
+# 输出: 3
+# 解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。
+#      请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
 
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
@@ -39,6 +39,22 @@ class Solution:
         #                 del HashMap[s[pre]]
         #             left = HashMap[s[i]] + 1
         #             HashMap[s[i]] = i
+
+        # 哈希 + 动态规划
+        # dp[i] 表示以第i个字符结尾的最长字符串长度
+        # dp[i-1]
+        tmp = 0
+        HashMap = dict()
+        ans = 0
+        for j, c in enumerate(s):
+            i = HashMap.get(c, -1)  # 如果c在返回c，否则返回-1
+            HashMap[c] = j
+            # dp[j] -> dp[j]
+            # 是不包括i位置的，所以没有 + 1
+            tmp = tmp + 1 if tmp < j - i else j - i
+            # print(j,i)
+            ans = max(ans, tmp)
+        return ans
                     
 
         # return maxlen
