@@ -21,7 +21,7 @@
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        #反转链表+链表求和
+        # 反转链表+链表求和
         def reverse(head):
             pre = None
             cur = head
