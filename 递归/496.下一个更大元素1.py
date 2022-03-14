@@ -30,7 +30,7 @@ class Solution:
         #             ans.append(-1)
         # return ans
 
-        #单调栈+哈希表
+        #栈+哈希表
         res = {}
         stack = []
         #遍历反向的nums2

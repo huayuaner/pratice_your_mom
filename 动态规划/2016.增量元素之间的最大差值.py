@@ -4,7 +4,7 @@
 
 class Solution:
     def maximumDifference(self, nums: List[int]) -> int:
-        # 单调栈
+        # 栈
         # 记录弹出的最小值
         # min_ = float("inf")
         # ans = -1

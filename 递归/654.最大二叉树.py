@@ -36,7 +36,7 @@ class Solution:
         #     return root
         # return (create(nums))
 
-        #单调栈
+        #栈
         stack = []
         for num in nums:
             cur = None

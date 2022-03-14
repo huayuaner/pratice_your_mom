@@ -67,7 +67,7 @@ class Solution:
         #         ans.append(i)
         # return ans
 
-        # 单调栈
+        # 栈
         # 单调递减栈
         # if time == 0:
         #     return [num for num in range(len(security))]

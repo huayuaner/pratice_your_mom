@@ -51,7 +51,7 @@ class Solution:
         #         ans += MAX - MIN
         # return ans
 
-        # 单调栈
+        # 栈
         # 第一次找nums[i]为最大值的范围
         stack = []
         ans = 0
