@@ -35,13 +35,25 @@ class Solution:
 
         # 动态规划
         # dp[i]代表第i个price的与之前最小值
-        dp = [float("inf")] * len(prices)
-        ans = 0
+        # dp = [float("inf")] * len(prices)
+        # ans = 0
+        # for i in range(1, len(prices)):
+        #     dp[i] = min(prices[i-1], dp[i-1])
+        #     ans = max(prices[i]- dp[i], ans)
+        # return ans
+        #
+        # 状态 0 cash in hand after selling 卖了股票后钱在手
+        # 状态 1 stock in hand 股票在手
+        dp = [[0,0] for _ in range(len(prices))]
+        # 第一天买了股票，利润为-price[0]
+        # 第一天不可能卖，所以为0
+        dp[0][1] = -prices[0]
         for i in range(1, len(prices)):
-            dp[i] = min(prices[i-1], dp[i-1])
-            ans = max(prices[i]- dp[i], ans)
-        return ans
-        
+            # 这一天手上的钱可能是前一天手上的钱或者前一天手上的股票今天卖了的钱
+            dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i])
+            # 这一天手上的股票可能是前一天手上的股票或者今天刚买的股票
+            dp[i][1] = max(dp[i-1][1],-prices[i])
+        return dp[-1][0]
 
 
 
