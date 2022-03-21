@@ -7,7 +7,7 @@
 # 输入：height = [4,2,0,3,2,5]
 # 输出：9
 
-# 单调栈
+# 栈
 # stack = []
 # ans = 0
 # for i in range(len(height)):
