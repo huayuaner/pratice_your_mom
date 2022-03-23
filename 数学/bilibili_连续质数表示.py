@@ -42,4 +42,4 @@ def windows(arr,num):
     return ans
 n = int(input())
 arr = arr_zhi(n)
-print(windows(arr, n))  
+print(windows(arr, n))
