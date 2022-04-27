@@ -13,6 +13,8 @@ def helper(s):
 
 while 1:
     try:
+        # 要记得删掉两边的空格，会因为这个报错
+
         s = list(input().strip())
         print(helper(s))
     except:
