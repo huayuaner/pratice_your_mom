@@ -9,7 +9,7 @@
 # 使用数组实现并查集
 class UF:
     def __init__(self, N):
-        # 初始化，每一个x的默认父亲是子集
+        # 初始化，每一个x的默认父亲是自己
         self.father = list(range(N))
 
     def find(self, x):
