@@ -50,3 +50,19 @@ class Solution:
             # 第二次卖出：什么都不干，今天卖出
             dp[i][3] = max(dp[i-1][3], dp[i-1][2]+prices[i])
         return max(dp[-1][1], dp[-1][3])
+        # 滚动数组版本
+        # n = len(prices)
+        # dp = [0 for _ in range(4)]
+        # # 0 第一次买
+        # # 1 第一次卖
+        # # 2 第二次买
+        # # 3 第二次卖
+        # dp[0] = -prices[0]
+        # dp[2] = float('-inf')
+        # for i in range(1, n):
+        #     dp[3] = max(dp[3], prices[i] + dp[2])
+        #     dp[2] = max(dp[2], dp[1] - prices[i])
+        #     dp[1] = max(dp[1], prices[i] + dp[0])
+        #     dp[0] = max(dp[0], -prices[i])
+        #
+        # return max(dp[1], dp[3])

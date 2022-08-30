@@ -1,0 +1,37 @@
+# 给定一个包含大写字母和小写字母的字符串 s ，返回 通过这些字母构造成的 最长的回文串 。
+#
+# 在构造过程中，请注意 区分大小写 。比如 "Aa" 不能当做一个回文字符串。
+#
+#  
+#
+# 示例 1:
+#
+# 输入:s = "abccccdd"
+# 输出:7
+# 解释:
+# 我们可以构造的最长的回文串是"dccaccd", 它的长度是 7。
+# 示例 2:
+#
+# 输入:s = "a"
+# 输入:1
+class Solution:
+    def longestPalindrome(self, s: str) -> int:
+        # ans = 0
+        # cnts = Counter(s)
+        # for k in cnts.keys():
+        #     ans += cnts[k]//2 * 2
+        #     cnts[k] = cnts[k]%2
+        # for k in cnts.keys():
+        #     if cnts[k]>0:
+        #         ans += 1
+        #         break
+        # return ans
+
+        # 优雅写法
+        cnts = Counter(s)
+        ans = 0
+        for k,v in cnts.items():
+            ans += v // 2 * 2
+            if ans % 2==0 and v%2==1:
+                ans += 1
+        return ans
